@@ -1,4 +1,4 @@
-# BTC Race v4
+# BTC Race v6
 
 [![make.fun · btc-race-24h-20261117-0603](https://make.fun/badge/btc-race-24h-20261117-0603.svg)](https://make.fun/bounty/btc-race-24h-20261117-0603?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603)
 [![rank](https://make.fun/badge/btc-race-24h-20261117-0603/RenaldiRenaldi/btc-race-24h-20261117-0603/rank.svg)](https://make.fun/bounty/btc-race-24h-20261117-0603/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=btc-race-24h-20261117-0603)
@@ -12,10 +12,12 @@ next open. No timestamps, bar targets, future prices, network or randomness
 are used to select trades.
 
 Buy a 55-bps decline from the highest close in the preceding 30 minutes
-when the last three minutes recover at least 9 bps. Spend available cash
-within the position cap. Exit at a 60-bps loss relative to fee-inclusive
-entry cost, or trail the best close by 7 bps once marked gain reaches
-150 bps. Wait 30 bars after an exit. There is no daily trade-count limit
+when the last three minutes recover at least 9 bps. Also enter on a 25-bps
+decline from the preceding 15-minute high when the latest minute recovers
+at least 10 bps. Spend available cash within the position cap. Exit at a
+60-bps loss relative to fee-inclusive entry cost. The primary signal trails
+the best close by 7 bps after a 150-bps gain; secondary entries trail by
+5 bps after a 50-bps gain. Wait 30 bars after an exit. There is no daily trade-count limit
 and no fixed profit cap. Rejected exits are retried. Warm-up bars build
 history but cannot trigger orders.
 
@@ -33,13 +35,13 @@ produced the same leading trade sequence; this is a local stability check,
 not evidence of profitability on unseen data. Gaps and next-open latency
 can exceed the nominal stop. The parent handles bundling and submission.
 
-Local kit grade: **+35.334425 USDC net PnL**, **0.7501483% maximum
-drawdown**, 5 strategy fills plus the end-of-window liquidation (three
+Local kit grade: **+39.926214 USDC net PnL**, **0.7506995% maximum
+drawdown**, 8 strategy fills plus the end-of-window liquidation (four
 completed round trips), and zero rejections. At doubled fees the same
-actions returned **+32.859899 USDC**. Both executions matched, with action
-hash `8174aa55c14b6545d99146d33225975a8cb709d3186566e4d9ee7ea369718b82`.
-The two voluntary exits realized +18.467549 and +14.391004 USDC; the
-remaining position added +2.475872 USDC upon forced liquidation.
+actions returned **+36.616173 USDC**. Action hash:
+`d82f0862f0a449cfc0602e6bdc552aa64fa66c094fbefe4a30666c80c9177a37`.
+The baseline v4 grade was +35.334425 USDC. This result is +4.591789 USDC
+above v4 but remains below the $50 target.
 
 Measured candidate comparisons (approximate float simulation, next-open
 fills and recorded depth, before integer rounding):

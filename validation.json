@@ -1,161 +1,233 @@
 {
-  "graded_strategy_commit": "4b06406ceb4afb2c42f77ba4d5d67bb30a98a84b",
+  "competition": "btc-race-24h-20261117-0603",
+  "phase": "dev",
   "driver": "process",
-  "status": "finished",
-  "metrics": {
-    "net_pnl_quote_units": "35334425",
-    "return": "0.035334425",
-    "sharpe": "0.047527084",
-    "sortino": "0.080570918",
-    "max_drawdown": "0.007501483",
-    "win_rate": "1.000000000",
-    "trades": 5,
-    "rejected": 0,
-    "distinct_symbols": 1,
-    "fees_quote_units": "2455692",
-    "exposure": "0.522222222",
-    "per_symbol": [
-      {
-        "symbol": "CBBTC",
-        "pnl_quote_units": "35334425",
-        "trades": 5,
-        "fees_quote_units": "2455692"
-      }
-    ],
-    "interval": {
-      "level": "0.900000000",
-      "method": "bootstrap-symbols",
-      "resamples": 1000,
-      "seed": "12332832071322557654",
-      "low_quote_units": "35334425",
-      "high_quote_units": "35334425"
-    },
-    "block_hours": 1,
-    "per_block": [
-      {
-        "block": 0,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 1,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 2,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 3,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 4,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 5,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 6,
-        "pnl_quote_units": "876017"
-      },
-      {
-        "block": 7,
-        "pnl_quote_units": "-1782450"
-      },
-      {
-        "block": 8,
-        "pnl_quote_units": "19373982"
-      },
-      {
-        "block": 9,
-        "pnl_quote_units": "1821876"
-      },
-      {
-        "block": 10,
-        "pnl_quote_units": "6231260"
-      },
-      {
-        "block": 11,
-        "pnl_quote_units": "-2492461"
-      },
-      {
-        "block": 12,
-        "pnl_quote_units": "3208460"
-      },
-      {
-        "block": 13,
-        "pnl_quote_units": "909397"
-      },
-      {
-        "block": 14,
-        "pnl_quote_units": "471943"
-      },
-      {
-        "block": 15,
-        "pnl_quote_units": "5377000"
-      },
-      {
-        "block": 16,
-        "pnl_quote_units": "-1136471"
-      },
-      {
-        "block": 17,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 18,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 19,
-        "pnl_quote_units": "0"
-      },
-      {
-        "block": 20,
-        "pnl_quote_units": "-82993"
-      },
-      {
-        "block": 21,
-        "pnl_quote_units": "7408508"
-      },
-      {
-        "block": 22,
-        "pnl_quote_units": "-1942247"
-      },
-      {
-        "block": 23,
-        "pnl_quote_units": "-2907396"
-      }
-    ],
-    "cost_sensitivity": {
-      "fee_multiplier": 2,
-      "net_pnl_quote_units": "32859899"
-    },
-    "constraints": {
-      "min_trades": 1,
-      "min_distinct_symbols": 0,
-      "max_drawdown": "0.250000000",
-      "trades_ok": true,
-      "symbols_ok": true,
-      "drawdown_ok": true,
-      "compliant": true
-    },
-    "contamination": {
-      "no_future_bars": true,
-      "final_window_first_bar_time": null,
-      "last_graded_receipt_at": null,
-      "window_after_receipts": null,
-      "dataset_sha256": "fe7f72ebd9c856238d49d62cec0c613856ded95cf98467fc0bd4d9daa76832d1"
-    }
+  "bot": {
+    "path": "/home/hatch/workspace/makefun/btc-race-24h-20261117-0603",
+    "commit": "worktree@4b5017c8eda3",
+    "source": "worktree",
+    "dirty": false,
+    "snapshot_sha256": "34631e6a57e9ce5e18ec6ce7842d2ddf44c9c0648008d0050a8593fe45d27122"
   },
-  "action_log_sha256": "8174aa55c14b6545d99146d33225975a8cb709d3186566e4d9ee7ea369718b82",
+  "status": "finished",
+  "error": null,
+  "result": {
+    "schema": "agent-fun/score/v1",
+    "harness": {
+      "kind": "bars-replay/v1",
+      "version": "harness@602a5d00b695b80c6c800c0d7f31c94b52983c624305c69b93ef7944bccc8694 node v24.22.1"
+    },
+    "scorer_version": "scorer@4e12dfb2e0b719a2f7a8ca0980215d9451f02eb0b1bf7ab7a9b3374557eec94c",
+    "image_digest": null,
+    "dataset_sha256": "fe7f72ebd9c856238d49d62cec0c613856ded95cf98467fc0bd4d9daa76832d1",
+    "action_log_sha256": "d82f0862f0a449cfc0602e6bdc552aa64fa66c094fbefe4a30666c80c9177a37",
+    "seed": "12332832071322557654",
+    "performance": {
+      "kind": "bars-replay/v1",
+      "metrics": {
+        "net_pnl_quote_units": "39926214",
+        "return": "0.039926214",
+        "sharpe": "0.049827986",
+        "sortino": "0.081940887",
+        "max_drawdown": "0.007506995",
+        "win_rate": "1.000000000",
+        "trades": 8,
+        "rejected": 0,
+        "distinct_symbols": 1,
+        "fees_quote_units": "3264042",
+        "exposure": "0.595138888",
+        "per_symbol": [
+          {
+            "symbol": "CBBTC",
+            "pnl_quote_units": "39926214",
+            "trades": 8,
+            "fees_quote_units": "3264042"
+          }
+        ],
+        "interval": {
+          "level": "0.900000000",
+          "method": "bootstrap-symbols",
+          "resamples": 1000,
+          "seed": "12332832071322557654",
+          "low_quote_units": "39926214",
+          "high_quote_units": "39926214"
+        },
+        "block_hours": 1,
+        "per_block": [
+          {
+            "block": 0,
+            "pnl_quote_units": "0"
+          },
+          {
+            "block": 1,
+            "pnl_quote_units": "0"
+          },
+          {
+            "block": 2,
+            "pnl_quote_units": "0"
+          },
+          {
+            "block": 3,
+            "pnl_quote_units": "-988963"
+          },
+          {
+            "block": 4,
+            "pnl_quote_units": "4023295"
+          },
+          {
+            "block": 5,
+            "pnl_quote_units": "-426177"
+          },
+          {
+            "block": 6,
+            "pnl_quote_units": "874522"
+          },
+          {
+            "block": 7,
+            "pnl_quote_units": "-1787092"
+          },
+          {
+            "block": 8,
+            "pnl_quote_units": "19421828"
+          },
+          {
+            "block": 9,
+            "pnl_quote_units": "1823552"
+          },
+          {
+            "block": 10,
+            "pnl_quote_units": "6247454"
+          },
+          {
+            "block": 11,
+            "pnl_quote_units": "-2498938"
+          },
+          {
+            "block": 12,
+            "pnl_quote_units": "3216798"
+          },
+          {
+            "block": 13,
+            "pnl_quote_units": "911760"
+          },
+          {
+            "block": 14,
+            "pnl_quote_units": "473170"
+          },
+          {
+            "block": 15,
+            "pnl_quote_units": "5390973"
+          },
+          {
+            "block": 16,
+            "pnl_quote_units": "-1142070"
+          },
+          {
+            "block": 17,
+            "pnl_quote_units": "0"
+          },
+          {
+            "block": 18,
+            "pnl_quote_units": "-1109359"
+          },
+          {
+            "block": 19,
+            "pnl_quote_units": "2963829"
+          },
+          {
+            "block": 20,
+            "pnl_quote_units": "-4196525"
+          },
+          {
+            "block": 21,
+            "pnl_quote_units": "6728157"
+          },
+          {
+            "block": 22,
+            "pnl_quote_units": "0"
+          },
+          {
+            "block": 23,
+            "pnl_quote_units": "0"
+          }
+        ],
+        "cost_sensitivity": {
+          "fee_multiplier": 2,
+          "net_pnl_quote_units": "36616173"
+        },
+        "constraints": {
+          "min_trades": 1,
+          "min_distinct_symbols": 0,
+          "max_drawdown": "0.250000000",
+          "trades_ok": true,
+          "symbols_ok": true,
+          "drawdown_ok": true,
+          "compliant": true
+        },
+        "contamination": {
+          "no_future_bars": true,
+          "final_window_first_bar_time": null,
+          "last_graded_receipt_at": null,
+          "window_after_receipts": null,
+          "dataset_sha256": "fe7f72ebd9c856238d49d62cec0c613856ded95cf98467fc0bd4d9daa76832d1"
+        }
+      }
+    },
+    "cost": {
+      "pricing_rev": "c6fcfac2cd8c1a316582690b02362df43ca26403f81019dbc528d75df1fb04e0",
+      "micro_usd": null,
+      "priced_micro_usd": "0",
+      "lines": 0,
+      "unpriced_lines": 0,
+      "partial_lines": 0,
+      "inconsistent_lines": 0,
+      "tokens": {
+        "input": "0",
+        "output": "0",
+        "cache_read": "0",
+        "cache_write_5m": "0",
+        "cache_write_1h": "0",
+        "reasoning": "0"
+      },
+      "models": [],
+      "provenance": "none"
+    },
+    "authorship": {
+      "algo_version": 11,
+      "lines_total": 219,
+      "authored": 0,
+      "pasted": 0,
+      "read": 0,
+      "absent": 219,
+      "authored_coverage": "0.000000000",
+      "micro_usd_per_surviving_line": null,
+      "dead_spend": null
+    },
+    "eligibility": {
+      "ranked": true,
+      "prize_eligible": false,
+      "efficiency_eligible": false,
+      "reasons": [
+        "no_transcripts",
+        "coverage_below_gate",
+        "cost_unpriced"
+      ]
+    },
+    "flags": []
+  },
+  "result_sha256": "125635a7ea3f3adf92603d702237cd365f760419a507c5ef83afe5e7c4c01270",
+  "action_log_sha256": "d82f0862f0a449cfc0602e6bdc552aa64fa66c094fbefe4a30666c80c9177a37",
   "l1": {
     "reproduced": true,
     "error": null
   },
-  "runtime_mismatches": [
+  "mismatches": [
     "node: the server's harness runs v26.13.1, this one v24.22.1"
-  ]
+  ],
+  "expected": null,
+  "notes": [
+    "process driver: the bot ran on this machine unisolated and the score records no image digest; a server grading in its docker sandbox records one, so only a server on the process driver (a dev server) records this result_sha256"
+  ],
+  "stderr_tail": "",
+  "quote_scale": 6
 }

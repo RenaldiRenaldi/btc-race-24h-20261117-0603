@@ -13,6 +13,9 @@ let entryPrice = 0;
 let bestGain = 0;
 let lastExit = -10000;
 let exitPending = false;
+let recoveryEntry = false;
+let scaledIn = false;
+let earlyEntryPrice = 0;
 
 await runBars({
   onBatch(state, batch) {
@@ -29,17 +32,28 @@ await runBars({
         entryPrice = Number(position.cost) / Number(position.qty)
           * 10 ** (spec.qty_scale + spec.price_scale - state.hello.capital.quote_scale);
         bestGain = 0;
+        if (recoveryEntry) earlyEntryPrice = entryPrice;
       } else if (fill.side === 'sell') {
         lastExit = batch.seq;
         entryPrice = 0;
+        recoveryEntry = false; scaledIn = false; earlyEntryPrice = 0;
         exitPending = false;
       }
     }
     if (position && entryPrice > 0) {
+      if (recoveryEntry && !scaledIn && earlyEntryPrice > 0 &&
+          (close / earlyEntryPrice - 1) * 10000 >= 30) {
+        const add = state.cash < state.weightRoom('CBBTC') ? state.cash : state.weightRoom('CBBTC');
+        if (add >= BigInt(state.hello.fees.min_notional_quote_units)) {
+          scaledIn = true;
+          return [{ side: 'buy', symbol: 'CBBTC', notional_quote_units: add, max_slippage_bps: 100 }];
+        }
+      }
       const gain = (close / entryPrice - 1) * 10000;
       bestGain = Math.max(bestGain, gain);
       if (gain <= -STOP_BPS ||
-          (bestGain >= TRAIL_ARM_BPS && gain <= bestGain - TRAIL_BPS)) exitPending = true;
+          (bestGain >= (recoveryEntry ? 50 : TRAIL_ARM_BPS) &&
+           gain <= bestGain - (recoveryEntry ? 5 : TRAIL_BPS))) exitPending = true;
       return exitPending
         ? [{ side: 'sell', symbol: 'CBBTC', qty: position.qty, max_slippage_bps: 100 }]
         : [];
@@ -49,8 +63,12 @@ await runBars({
     const dip = (close / Math.max(...closes) - 1) * 10000;
     const bounce = (close / closes[closes.length - 1 - BOUNCE_BARS] - 1) * 10000;
     const spend = state.cash < state.weightRoom('CBBTC') ? state.cash : state.weightRoom('CBBTC');
-    if (dip <= -DIP_BPS && bounce >= BOUNCE_BPS &&
+    const primary = dip <= -DIP_BPS && bounce >= BOUNCE_BPS;
+    const quickDip = (close / Math.max(...closes.slice(-16)) - 1) * 10000;
+    const quickBounce = (close / closes[closes.length - 2] - 1) * 10000;
+    if ((primary || (quickDip <= -25 && quickBounce >= 10)) &&
         spend >= BigInt(state.hello.fees.min_notional_quote_units)) {
+      recoveryEntry = !primary;
       return [{ side: 'buy', symbol: 'CBBTC', notional_quote_units: spend, max_slippage_bps: 100 }];
     }
     return [];
