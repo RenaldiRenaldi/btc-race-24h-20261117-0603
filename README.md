@@ -69,3 +69,27 @@ The process driver used Node v24.22.1; the kit reports harness Node
 v26.13.1. This is an advisory local grade. Transcript eligibility and the
 server grade are checked on the parent's final bundle. No submission
 was made by this build.
+
+
+v8 independent momentum experiment (discarded)
+
+The v6 baseline was regraded at +39.926214 USDC, 8 fills, 0.7506995%
+maximum drawdown, and +36.616173 USDC at doubled fees. Three new momentum
+candidates used separate cash, quantity, cost and cooldown ledgers, with
+80% capital allocated to unchanged v6 dip rules and 20% to breakout buys.
+Momentum entries required a close above the preceding rolling high and
+15-minute confirmation, with a 100-bps stop and a 5-bps trail activated
+at 120 bps of fee-inclusive gain. Momentum cooldown was 60 bars.
+
+| Breakout window | 15-minute confirmation | Combined net USDC | Fills | Max DD | Doubled-fee USDC |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 30 minutes | 5 bps | 32.795516 | 17 | 0.8426546% | 29.365448 |
+| 60 minutes | 20 bps | 30.051193 | 15 | 0.8340730% | 26.802708 |
+| 120 minutes | 30 bps | 31.307457 | 13 | 0.8350498% | 28.216033 |
+
+These are explicit `grade-local --worktree` results, each with zero
+rejections. The independently funded momentum mode failed the required
++5-USDC incremental gain, so it was discarded and main.ts restored from
+20f83db. No v8 strategy was committed, pushed or submitted. The retained
+v6 remains 10.073786 USDC short of the 50-USDC target. validation.json
+contains the newly reproduced retained baseline, not a discarded experiment.

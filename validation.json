@@ -4,10 +4,10 @@
   "driver": "process",
   "bot": {
     "path": "/home/hatch/workspace/makefun/btc-race-24h-20261117-0603",
-    "commit": "worktree@4b5017c8eda3",
-    "source": "worktree",
+    "commit": "20f83db0f81e90c4fc10e27e2e6fa28f17d1233c",
+    "source": "commit",
     "dirty": false,
-    "snapshot_sha256": "34631e6a57e9ce5e18ec6ce7842d2ddf44c9c0648008d0050a8593fe45d27122"
+    "snapshot_sha256": "a85b32e5ccf3e2096226080b5f3a897c5459207f80cb9f4ff5cb4d5116a31d32"
   },
   "status": "finished",
   "error": null,
@@ -194,11 +194,11 @@
     },
     "authorship": {
       "algo_version": 11,
-      "lines_total": 219,
+      "lines_total": 281,
       "authored": 0,
       "pasted": 0,
       "read": 0,
-      "absent": 219,
+      "absent": 281,
       "authored_coverage": "0.000000000",
       "micro_usd_per_surviving_line": null,
       "dead_spend": null
@@ -215,7 +215,7 @@
     },
     "flags": []
   },
-  "result_sha256": "125635a7ea3f3adf92603d702237cd365f760419a507c5ef83afe5e7c4c01270",
+  "result_sha256": "62732e289b988a9adf0a3eea94cb090ccef1776fb9aaf9059a63438b54f70a9b",
   "action_log_sha256": "d82f0862f0a449cfc0602e6bdc552aa64fa66c094fbefe4a30666c80c9177a37",
   "l1": {
     "reproduced": true,
